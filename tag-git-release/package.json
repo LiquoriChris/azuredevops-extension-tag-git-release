@@ -1,0 +1,11 @@
+{
+  "name": "tag-git-release",
+  "version": "0.1.4",
+  "private": true,
+  "keywords": [],
+  "author": "",
+  "license": "MIT",
+  "dependencies": {
+    "vss-web-extension-sdk": "^5.141.0"
+  }
+}
