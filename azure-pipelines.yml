@@ -21,7 +21,7 @@ steps:
 - task: CopyFiles@2
   displayName: 'Copy Files to: $(build.artifactstagingdirectory)'
   inputs:
-    SourceFolder: '$(Build.SourcesDirectory)/pwshliquori.tag-git-release-0.1.4.vsix'
+    SourceFolder: '$(Build.SourcesDirectory)\pwshliquori.tag-git-release-0.1.4.vsix'
     TargetFolder: '$(Build.ArtifactStagingDirectory)'
 - task: PublishBuildArtifacts@1
   displayName: 'Publish Artifact: drop'
