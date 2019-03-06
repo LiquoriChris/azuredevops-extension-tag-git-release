@@ -1,0 +1,22 @@
+resources:
+  - repo: self
+name: $(Date:yyyyMMdd)$(Rev:.r)
+trigger:
+  branches:
+    include:
+    - master
+  paths:
+    exclude:
+    - azure-pipelines.yml
+pool:
+  name: OnPrem VS2017
+variables: 
+  Name: tag-git-release
+steps:
+- task: ms-devlabs.vsts-developer-tools-build-tasks.package-extension-build-task.PackageVSTSExtension@1
+  displayName: 'Package Extension: $(Name)'
+  inputs:
+    rootFolder: /
+    localizationRoot: /
+    extensionVisibility: private
+    extensionPricing: free
