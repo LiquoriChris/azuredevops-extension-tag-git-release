@@ -1,5 +1,7 @@
 resources:
   - repo: self
+pool:
+  name: OnPrem VS2017
 name: $(Date:yyyyMMdd)$(Rev:.r)
 trigger:
   branches:
@@ -8,8 +10,6 @@ trigger:
   paths:
     exclude:
     - azure-pipelines.yml
-pool:
-  name: OnPrem VS2017
 variables: 
   Name: tag-git-release
 steps:
