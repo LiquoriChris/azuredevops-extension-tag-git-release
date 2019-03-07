@@ -1,17 +1,37 @@
 param (
     [Parameter(Mandatory)]
-    [string]
-    $Name,
+    [string]$Name,
     [Parameter(Mandatory)]
-    [string]
-    $Message
+    [string]$Message,
+    [string]$PersonalAccessToken
 )
 
-if (!$env:SYSTEM_ACCESSTOKEN) {
+function _Authentication {
+    param (
+        [string]$PersonalAccessToken
+    )
+
+    if ($PersonalAccessToken) {
+        @{
+            Authorization = "Basic $PersonalAccessToken"
+        }
+    }
+    else {
+        @{
+            Authorization = "Bearer $env:SYSTEM_ACCESSTOKEN"
+        }
+    }
+}
+
+if (!$env:SYSTEM_ACCESSTOKEN -and !$PersonalAccessToken) {
     throw "Enable access token is not available for $env:RELEASE_ENVIRONMENTNAME"
 }
 else {
-    $Headers = @{Authorization = "Bearer $env:SYSTEM_ACCESSTOKEN"}
+    $Params = @{}
+    if ($PersonalAccessToken) {
+        $Params.PersonalAccessToken = $PersonalAccessToken
+    }
+    $Headers = _Authentication @Params
 }
 
 $Params = @{
