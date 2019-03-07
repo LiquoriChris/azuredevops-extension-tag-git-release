@@ -13,7 +13,7 @@
 	"version": {
         "Major": "1",
         "Minor": "0",
-        "Patch": "0"
+        "Patch": "1"
 	},
 	"groups": [
         {
@@ -41,7 +41,7 @@
 			"helpMarkDown": "The message or description for the git tag."
 		},
 		{
-			"name": "pat",
+			"name": "PersonalAccessToken",
 			"type": "string",
 			"label": "Personal Access Token",
 			"required": false,

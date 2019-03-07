@@ -3,7 +3,7 @@
 	"id": "tag-git-release",
 	"name": "Tag Git on Release",
 	"description": "Create an annotated git tag in the release pipeline",
-	"version": "1.0.0",
+	"version": "1.0.1",
 	"publisher": "pwshliquori",
 	"public":  false, 
 	"baseUri": "https://github.com/USF-HII",
