@@ -1,7 +1,7 @@
 resources:
   - repo: self
 pool:
-  name: OnPrem RDN
+  name: OnPrem VS2017
 name: $(Date:yyyyMMdd)$(Rev:.r)
 trigger:
   branches:
