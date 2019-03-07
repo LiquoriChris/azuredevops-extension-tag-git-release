@@ -15,6 +15,13 @@
         "Minor": "1",
         "Patch": "5"
 	},
+	"groups": [
+        {
+            "name": "advanced",
+            "displayName": "Advanced",
+            "isExpanded": false
+        }
+    ],
 	"instanceNameFormat": "Tag Git Release",
 	"inputs": [
 		{
