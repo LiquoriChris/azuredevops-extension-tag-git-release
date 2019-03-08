@@ -12,6 +12,7 @@ function _Authentication {
     )
 
     if ($PersonalAccessToken) {
+        $PersonalAccessToken = [Convert]::ToBase64String([Text.Encoding]::ASCII.GetBytes(("{0}:{1}" -f $UserName, $PersonalAccessToken)))
         @{
             Authorization = "Basic $PersonalAccessToken"
         }
@@ -50,11 +51,10 @@ $Params = @{
 }
 Try {
     $Response = Invoke-RestMethod @Params
+    Write-Output "Name: $($Response.name)"
+    Write-Output "Commit: $($Response.objectId)"
+    Write-Output "Message: $($Response.message)"
 }
 Catch {
     throw $_
 }
-
-Write-Output "Name: $($Response.name)"
-Write-Output "Commit: $($Response.objectId)"
-Write-Output "Message: $($Response.message)"
