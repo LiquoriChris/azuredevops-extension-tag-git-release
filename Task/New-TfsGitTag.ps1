@@ -35,6 +35,7 @@ if (!$PersonalAccessToken -and !$OAuthToken) {
 else {
     $Params = @{}
     if ($PersonalAccessToken) {
+        $PersonalAccessToken = Get-VstsInput -Name 'PersonalAccessToken' -Default false
         $Params.PersonalAccessToken = $PersonalAccessToken
     }
     $Headers = _Authentication @Params
