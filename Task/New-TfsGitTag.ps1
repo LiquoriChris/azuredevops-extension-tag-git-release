@@ -4,6 +4,13 @@ param (
     [string]$PersonalAccessToken
 )
 
+$OAuthToken = Get-VstsTaskVariable -Name System.AccessToken
+$Environment = Get-VstsTaskVariable -Name Release.EnvironmentName
+$TeamUri = Get-VstsTaskVariable -Name System.TeamFoundationCollectionUri
+$ProjectName = Get-VstsTaskVariable -Name Build.ProjectName
+$RepositoryId = Get-VstsTaskVariable -Name Build.Repository.Id
+$SourceVersion = Get-VstsTaskVariable -Name Build.SourceVersion
+
 function _Authentication {
     param (
         [string]$PersonalAccessToken
@@ -17,17 +24,10 @@ function _Authentication {
     }
     else {
         @{
-            Authorization = "Bearer $env:SYSTEM_ACCESSTOKEN"
+            Authorization = "Bearer $OAuthToken"
         }
     }
 }
-
-$OAuthToken = Get-VstsTaskVariable -Name System.AccountToken
-$Environment = Get-VstsTaskVariable -Name Release.EnvironmentName
-$TeamUri = Get-VstsTaskVariable -Name System.TeamFoundationCollectionUri
-$ProjectName = Get-VstsTaskVariable -Name Build.$ProjectName
-$RepositoryId = Get-VstsTaskVariable -Name Build.Repository.Id
-$SourceVersion = Get-VstsTaskVariable -Name Build.SourceVersion
 
 if (!$PersonalAccessToken -and !$OAuthToken) {
     throw ("There is no authentication method provided. Please use a personal access token or allow OAuth token to be used for $Environment")
