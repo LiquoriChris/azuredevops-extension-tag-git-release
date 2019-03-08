@@ -19,7 +19,7 @@ steps:
 - task: ms-devlabs.vsts-developer-tools-build-tasks.package-extension-build-task.PackageVSTSExtension@1
   displayName: 'Package Extension: $(Name)'
   inputs:
-    extensionVisibility: private
+    extensionVisibility: public
     extensionPricing: free
 - task: CopyFiles@2
   displayName: 'Copy Files to: $(build.artifactstagingdirectory)'
