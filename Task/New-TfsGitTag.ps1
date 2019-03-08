@@ -1,7 +1,5 @@
 param (
-    [Parameter(Mandatory)]
     [string]$Name,
-    [Parameter(Mandatory)]
     [string]$Message,
     [string]$PersonalAccessToken
 )
@@ -24,8 +22,15 @@ function _Authentication {
     }
 }
 
-if (!$env:SYSTEM_ACCESSTOKEN -and !$PersonalAccessToken) {
-    throw "Enable access token is not available for $env:RELEASE_ENVIRONMENTNAME"
+$OAuthToken = Get-VstsTaskVariable -Name System.AccountToken
+$Environment = Get-VstsTaskVariable -Name Release.EnvironmentName
+$TeamUri = Get-VstsTaskVariable -Name System.TeamFoundationCollectionUri
+$ProjectName = Get-VstsTaskVariable -Name Build.$ProjectName
+$RepositoryId = Get-VstsTaskVariable -Name Build.Repository.Id
+$SourceVersion = Get-VstsTaskVariable -Name Build.SourceVersion
+
+if (!$PersonalAccessToken -and !$OAuthToken) {
+    throw ("There is no authentication method provided. Please use a personal access token or allow OAuth token to be used for $Environment")
 }
 else {
     $Params = @{}
@@ -36,12 +41,12 @@ else {
 }
 
 $Params = @{
-    Uri = "$env:SYSTEM_TEAMFOUNDATIONCOLLECTIONURI$env:BUILD_PROJECTNAME/_apis/git/repositories/$env:BUILD_REPOSITORY_ID/annotatedtags?api-version=5.0-preview.1"
+    Uri = "$($TeamUri)$($ProjectName)/_apis/git/repositories/$($RepositoryId)/annotatedtags?api-version=5.0-preview.1"
     Headers = $Headers
     Body = [ordered]@{
         name = $Name
         taggedObject = @{
-            objectId = $env:BUILD_SOURCEVERSION
+            objectId = $SourceVersion
         }
         message = $Message
     } |ConvertTo-Json -Depth 2

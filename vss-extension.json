@@ -3,9 +3,9 @@
 	"id": "tag-git-release",
 	"name": "Tag Git on Release",
 	"description": "Create an annotated git tag in the release pipeline",
-	"version": "1.0.4",
-	"publisher": "pwshliquori",
-	"public":  true,
+	"version": "1.0.5",
+	"publisher": "christest",
+	"public":  false,
 	"baseUri": "https://github.com/USF-HII",
 	"scopes": [],
 	"tags": [
