@@ -5,7 +5,7 @@
 	"description": "Create an annotated git tag in the release pipeline",
 	"version": "1.0.3",
 	"publisher": "pwshliquori",
-	"public":  true, 
+	"public":  true,
 	"baseUri": "https://github.com/USF-HII",
 	"scopes": [],
 	"tags": [
