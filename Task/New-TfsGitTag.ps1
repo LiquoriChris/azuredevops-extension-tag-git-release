@@ -9,7 +9,6 @@ $RepositoryId = Get-VstsTaskVariable -Name Build.Repository.Id
 $SourceVersion = Get-VstsTaskVariable -Name Build.SourceVersion
 $Name = Get-VstsInput -Name 'Name' -Default false
 $Message = Get-VstsInput -Name 'Message' -Default false
-$PersonalAccessToken = Get-VstsInput -Name 'PersonalAccessToken' -Default false
 
 function _Authentication {
     param (
