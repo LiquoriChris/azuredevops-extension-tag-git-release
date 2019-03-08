@@ -1,8 +1,5 @@
-param (
-    [string]$Name,
-    [string]$Message,
-    [string]$PersonalAccessToken
-)
+[CmdletBinding()]
+param ()
 
 $OAuthToken = Get-VstsTaskVariable -Name System.AccessToken
 $Environment = Get-VstsTaskVariable -Name Release.EnvironmentName
@@ -10,6 +7,9 @@ $TeamUri = Get-VstsTaskVariable -Name System.TeamFoundationCollectionUri
 $ProjectName = Get-VstsTaskVariable -Name Build.ProjectName
 $RepositoryId = Get-VstsTaskVariable -Name Build.Repository.Id
 $SourceVersion = Get-VstsTaskVariable -Name Build.SourceVersion
+$Name = Get-VstsInput -Name 'Name' -Default false
+$Message = Get-VstsInput -Name 'Message' -Default false
+$PersonalAccessToken = Get-VstsInput -Name 'PersonalAccessToken' -Default false
 
 function _Authentication {
     param (
