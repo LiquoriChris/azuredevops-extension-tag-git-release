@@ -25,7 +25,7 @@ steps:
   displayName: 'Copy Files to: $(build.artifactstagingdirectory)'
   inputs:
     SourceFolder: '$(Build.SourcesDirectory)'
-    Contents: 'pwshliquori.tag-git-release*'
+    Contents: 'pwshliquori.$(Name)*'
     TargetFolder: '$(Build.ArtifactStagingDirectory)'
 - task: PublishBuildArtifacts@1
   displayName: 'Publish Artifact: drop'
