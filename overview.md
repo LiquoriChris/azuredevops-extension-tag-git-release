@@ -15,9 +15,3 @@ Authentication is handled by using the OAuth token which must be enabled in each
 ## Note
 
 Enabling "Allow scripts to access the OAuth token" can be found under the "Agent Job/Phase" section of the selected stage.
-
-## Changelog
-
-Version 1.0.4
-- Add ability to use personal access tokens.
-- Resize logo to extension standards.
