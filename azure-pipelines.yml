@@ -12,6 +12,7 @@ trigger:
   paths:
     exclude:
     - azure-pipelines.yml
+    - readme.md
     - Tests/*
 variables: 
   Name: tag-git-release
