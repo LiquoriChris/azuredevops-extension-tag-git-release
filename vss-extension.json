@@ -6,7 +6,7 @@
 	"version": "1.1.1",
 	"publisher": "pwshliquori",
 	"public":  true,
-	"baseUri": "https://github.com/USF-HII",
+	"baseUri": "https://github.com/pwshliquori",
 	"scopes": [],
 	"tags": [
 		"git",
@@ -15,21 +15,21 @@
 	],
 	"links": {
 		"home": {
-			"uri": "https://github.com/USF-HII/azuredevops-extension-tag-git-release"
+			"uri": "https://github.com/pwshliquori/azuredevops-extension-tag-git-release"
 		},
 		"learn": {
-			"uri": "https://github.com/USF-HII/azuredevops-extension-tag-git-release"
+			"uri": "https://github.com/pwshliquori/azuredevops-extension-tag-git-release"
 		},
 		"support": {
-			"uri": "https://github.com/USF-HII/azuredevops-extension-tag-git-release/issues"
+			"uri": "https://github.com/pwshliquori/azuredevops-extension-tag-git-release/issues"
 		},
 		"repository": {
-			"uri": "https://github.com/USF-HII/azuredevops-extension-tag-git-release"
+			"uri": "https://github.com/pwshliquori/azuredevops-extension-tag-git-release"
 		}
 	},
 	"repository": {
 		"type": "git",
-		"uri": "https://github.com/USF-HII/azuredevops-extension-tag-git-release"
+		"uri": "https://github.com/pwshliquori/azuredevops-extension-tag-git-release"
 	},
 	"branding": {
 		"color": "rgb(0, 114, 186)",
