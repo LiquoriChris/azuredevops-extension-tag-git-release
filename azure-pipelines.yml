@@ -1,7 +1,7 @@
 resources:
   - repo: self
 pool:
-  name: OnPrem VS2017
+  name: vs2017-win2016
 workspace:
   clean: all
 name: $(Date:yyyyMMdd)$(Rev:.r)
