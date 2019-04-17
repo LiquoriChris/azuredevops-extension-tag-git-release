@@ -1,3 +1,7 @@
+# Notice
+
+All future development will be done under a new publisher. You will need to remove the current extension and add it back into your organization. I apologize for any inconvenience.
+
 # Tag Git on Release (Azure DevOps Extension)
 
 Azure DevOps task to tag a git commit in the release pipeline.
