@@ -26,7 +26,7 @@ steps:
   displayName: 'Copy Files to: $(build.artifactstagingdirectory)'
   inputs:
     SourceFolder: '$(Build.SourcesDirectory)'
-    Contents: 'pwshliquori.$(Name)*'
+    Contents: 'liquorichris.$(Name)*'
     TargetFolder: '$(Build.ArtifactStagingDirectory)'
 - task: PublishBuildArtifacts@1
   displayName: 'Publish Artifact: drop'
