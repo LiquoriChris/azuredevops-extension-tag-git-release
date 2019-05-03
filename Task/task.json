@@ -41,6 +41,14 @@
 			"helpMarkDown": "The message or description for the git tag."
 		},
 		{
+			"name": "ignoreExisting",
+			"type": "bool",
+			"label": "Ignore Existing Tag",
+			"defaultValue": "false",
+			"required": false,
+			"helpMarkDown": "Ignore errors if the tag already exists."
+		},
+		{
 			"name": "PersonalAccessToken",
 			"type": "string",
 			"label": "Personal Access Token",
