@@ -9,6 +9,7 @@ $RepositoryId = Get-VstsTaskVariable -Name Build.Repository.Id
 $SourceVersion = Get-VstsTaskVariable -Name Build.SourceVersion
 $Name = Get-VstsInput -Name 'Name' -Default false
 $Message = Get-VstsInput -Name 'Message' -Default false
+$IgnoreExisting = Get-VstsInput -Name 'ignoreExisting' -Default $false
 
 function _Authentication {
     param (
@@ -54,12 +55,25 @@ $Params = @{
     Method = 'Post'
     ErrorAction = 'Stop'
 }
+
+$TagCreated = $false
 Try {
     $Response = Invoke-RestMethod @Params
     Write-Output "Name: $($Response.name)"
     Write-Output "Commit: $($Response.objectId)"
     Write-Output "Message: $($Response.message)"
+    $TagCreated = $true
 }
 Catch {
-    throw $_
+    $throw = $true
+    $StatusCode = $_.Exception.Response.StatusCode.value__
+    if (($StatusCode -eq 409) -and ($IgnoreExisting)) {
+        Write-Warning "Tag '$Name' already exists. Ignoring."
+        $throw = $false
+    }
+    if ($throw) {
+        throw $_
+    }
 }
+
+exit($TagCreated)
