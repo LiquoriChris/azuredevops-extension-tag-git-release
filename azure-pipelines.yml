@@ -5,15 +5,7 @@ pool:
 workspace:
   clean: all
 name: $(Date:yyyyMMdd)$(Rev:.r)
-trigger:
-  branches:
-    include:
-    - master
-  paths:
-    exclude:
-    - azure-pipelines.yml
-    - readme.md
-    - Tests/*
+trigger: none
 variables: 
   Name: tag-git-release
 steps:
