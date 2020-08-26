@@ -4,7 +4,7 @@ param ()
 $OAuthToken = Get-VstsTaskVariable -Name System.AccessToken
 $Environment = Get-VstsTaskVariable -Name Release.EnvironmentName
 $TeamUri = Get-VstsTaskVariable -Name System.TeamFoundationCollectionUri
-$ProjectName = Get-VstsTaskVariable -Name Build.ProjectName
+$ProjectName = Get-VstsTaskVariable -Name System.TeamProject
 $RepositoryId = Get-VstsTaskVariable -Name Build.Repository.Id
 $SourceVersion = Get-VstsTaskVariable -Name Build.SourceVersion
 $Name = Get-VstsInput -Name 'Name' -Default false
