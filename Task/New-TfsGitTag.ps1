@@ -60,7 +60,7 @@ $TagCreated = $false
 Try {
     $Response = Invoke-RestMethod @Params
     Write-Output "Name: $($Response.name)"
-    Write-Output "Commit: $($Response.objectId)"
+    Write-Output "Commit: $($Response.taggedObject.objectId)"
     Write-Output "Message: $($Response.message)"
     $TagCreated = $true
 }
