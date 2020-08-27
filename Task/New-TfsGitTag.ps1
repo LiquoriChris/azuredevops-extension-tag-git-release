@@ -2,7 +2,7 @@
 param ()
 
 $OAuthToken = Get-VstsTaskVariable -Name System.AccessToken
-$Environment = Get-VstsTaskVariable -Name System.PhaseDisplayName
+$Environment = Get-VstsTaskVariable -Name System.PhaseName
 $TeamUri = Get-VstsTaskVariable -Name System.TeamFoundationCollectionUri
 $ProjectName = Get-VstsTaskVariable -Name System.TeamProject
 $RepositoryId = Get-VstsTaskVariable -Name Build.Repository.Id
