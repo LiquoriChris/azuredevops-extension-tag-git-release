@@ -12,8 +12,8 @@
 	"demands": [ ],
 	"version": {
         "Major": "1",
-        "Minor": "1",
-        "Patch": "6"
+        "Minor": "2",
+        "Patch": "0"
 	},
 	"groups": [
         {
@@ -28,7 +28,7 @@
 			"name": "name",
 			"type": "string",
 			"label": "Name",
-			"defaultValue": "$(Release.ReleaseName)",
+			"defaultValue": "$(System.PhaseDisplayName)",
 			"required": true,
 			"helpMarkDown": "Name of the git tag."
 		},
