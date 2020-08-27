@@ -28,7 +28,7 @@
 			"name": "name",
 			"type": "string",
 			"label": "Name",
-			"defaultValue": "$(System.PhaseDisplayName)",
+			"defaultValue": "$(System.PhaseName)",
 			"required": true,
 			"helpMarkDown": "Name of the git tag."
 		},
