@@ -10,7 +10,7 @@ When releasing to an environment, the task will tag the commit id of your source
 
 Utilizes the Azure DevOps Rest API to call the annotated tagging method. Creates the tag based on environment variables from the release pipeline.
 
-Authentication is handled by using the OAuth token which must be enabled in each environment in order to use this task. 
+Authentication is handled by either using an OAuth token, which utilizes the built-in System.Accesstoken variable in Azure DevOps or Person Access Token (PAT). Adding a PAT can be found under the "Advanced" drop down in the task options.
 
 ## Note
 
