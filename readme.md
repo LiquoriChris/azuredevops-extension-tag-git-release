@@ -14,7 +14,7 @@ Authentication is handled by either using an OAuth token, which utilizes the bui
 
 ## Note
 
-Enabling "Allow scripts to access the OAuth token" can be found under the "Agent Job/Phase" section of the selected stage.
+Enabling "Allow scripts to access the OAuth token" can be found under the "Agent Job/Phase" section of the selected stage. If using Azure yaml pipelines, System.AccessToken will be activated when calling the task, no action is needed. 
 
 ## Contribute 
 
