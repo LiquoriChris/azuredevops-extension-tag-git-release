@@ -17,7 +17,7 @@ trigger:
 variables: 
   Name: tag-git-release
 steps:
-- task: ms-devlabs.vsts-developer-tools-build-tasks.package-extension-build-task.PackageVSTSExtension@1
+- task: ms-devlabs.vsts-developer-tools-build-tasks.package-extension-build-task.PackageAzureDevOpsExtension@3
   displayName: 'Package Extension: $(Name)'
   inputs:
     extensionVisibility: public
