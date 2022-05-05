@@ -17,6 +17,9 @@ trigger:
 variables: 
   Name: tag-git-release
 steps:
+- task: TfxInstaller@3
+  inputs:
+    version: 'v0.11.x'
 - task: ms-devlabs.vsts-developer-tools-build-tasks.package-extension-build-task.PackageAzureDevOpsExtension@3
   displayName: 'Package Extension: $(Name)'
   inputs:
