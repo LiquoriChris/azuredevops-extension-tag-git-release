@@ -1,4 +1,5 @@
 [CmdletBinding()]
+[Net.ServicePointManager]::SecurityProtocol = [Net.SecurityProtocolType]::Tls12
 param ()
 
 $OAuthToken = Get-VstsTaskVariable -Name System.AccessToken
