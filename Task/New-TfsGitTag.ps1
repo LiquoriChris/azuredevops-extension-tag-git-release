@@ -1,5 +1,4 @@
 [CmdletBinding()]
-[Net.ServicePointManager]::SecurityProtocol = [Net.SecurityProtocolType]::Tls12
 param ()
 
 $OAuthToken = Get-VstsTaskVariable -Name System.AccessToken
@@ -30,6 +29,8 @@ function _Authentication {
         }
     }
 }
+
+[Net.ServicePointManager]::SecurityProtocol = [Net.SecurityProtocolType]::Tls12
 
 if (!$PersonalAccessToken -and !$OAuthToken) {
     throw ("There is no authentication method provided. Please use a personal access token or allow OAuth token to be used for $Environment")
