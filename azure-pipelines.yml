@@ -1,10 +1,7 @@
 resources:
-  - repo: self
+- repo: self
 pool:
   vmImage: windows-latest
-workspace:
-  clean: all
-name: $(Date:yyyyMMdd)$(Rev:.r)
 trigger: 
   branches:
     include:
@@ -16,20 +13,48 @@ trigger:
     - Tests/*
 variables: 
   Name: tag-git-release
-steps:
-- task: TfxInstaller@3
-  inputs:
-    version: 'v0.11.x'
-- task: ms-devlabs.vsts-developer-tools-build-tasks.package-extension-build-task.PackageAzureDevOpsExtension@3
-  displayName: 'Package Extension: $(Name)'
-  inputs:
-    extensionVisibility: public
-    extensionPricing: free
-- task: CopyFiles@2
-  displayName: 'Copy Files to: $(build.artifactstagingdirectory)'
-  inputs:
-    SourceFolder: '$(Build.SourcesDirectory)'
-    Contents: 'liquorichris.$(Name)*'
-    TargetFolder: '$(Build.ArtifactStagingDirectory)'
-- task: PublishBuildArtifacts@1
-  displayName: 'Publish Artifact: drop'
+stages:
+- stage: build
+  displayName: build
+  jobs:
+  - job: build
+    displayName: build
+    steps:
+    - task: TfxInstaller@3
+      inputs:
+        version: 'v0.11.x'
+    - task: ms-devlabs.vsts-developer-tools-build-tasks.package-extension-build-task.PackageAzureDevOpsExtension@3
+      displayName: 'Package Extension: $(Name)'
+      inputs:
+        extensionVisibility: public
+        extensionPricing: free
+    - task: CopyFiles@2
+      displayName: 'Copy Files to: $(build.artifactstagingdirectory)'
+      inputs:
+        SourceFolder: '$(Build.SourcesDirectory)'
+        Contents: 'liquorichris.$(Name)*'
+        TargetFolder: '$(Build.ArtifactStagingDirectory)'
+    - task: PublishBuildArtifacts@1
+      displayName: 'Publish Artifact: drop'
+- stage: publish
+  dependsOn: build
+  displayName: publish
+  jobs:
+  - deployment: publish
+    environment: publish
+    strategy:
+      runOnce:
+        deploy:
+          steps:
+            - task: ms-devlabs.vsts-developer-tools-build-tasks.tfx-installer-build-task.TfxInstaller@3
+              displayName: 'Use Node CLI for Azure DevOps (tfx-cli): v0.11.x'
+            - task: ms-devlabs.vsts-developer-tools-build-tasks.publish-extension-build-task.PublishAzureDevOpsExtension@3
+              displayName: 'Publish Extension'
+              inputs:
+                connectedServiceName: Marketplace
+                fileType: vsix
+                vsixFile: '$(Source)/*'
+                updateTasksVersion: false
+                extensionVisibility: public
+                extensionPricing: free
+                noWaitValidation: true
