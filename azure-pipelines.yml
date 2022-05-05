@@ -53,7 +53,7 @@ stages:
               inputs:
                 connectedServiceName: Marketplace
                 fileType: vsix
-                vsixFile: '$(Pipeline.Workspace)/*'
+                vsixFile: '$(Pipeline.Workspace)/drop/*'
                 updateTasksVersion: false
                 extensionVisibility: public
                 extensionPricing: free
