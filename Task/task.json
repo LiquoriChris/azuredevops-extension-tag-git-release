@@ -3,7 +3,7 @@
 	"name": "TagGitRelease",
 	"friendlyName": "Tag Git on Release",
 	"description": "Create an annotated git tag in the release pipeline.",
-	"author": "pwshliquori",
+	"author": "Chris Liquori",
 	"helpMarkDown": "Creates an annotated tag on a git commit using the Azure DevOps Rest API.",
 	"category": "Deploy",
 	"visibility": [
@@ -13,7 +13,7 @@
 	"version": {
         "Major": "1",
         "Minor": "2",
-        "Patch": "4"
+        "Patch": "5"
 	},
 	"groups": [
         {

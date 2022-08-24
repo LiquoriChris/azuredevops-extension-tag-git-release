@@ -3,10 +3,10 @@
 	"id": "tag-git-release",
 	"name": "Tag Git on Release",
 	"description": "Create an annotated git tag in the release pipeline",
-	"version": "1.2.4",
+	"version": "1.2.5",
 	"publisher": "liquorichris",
 	"public":  true,
-	"baseUri": "https://github.com/pwshliquori",
+	"baseUri": "https://github.com/liquorichris",
 	"scopes": [],
 	"tags": [
 		"git",
@@ -15,21 +15,21 @@
 	],
 	"links": {
 		"home": {
-			"uri": "https://github.com/pwshliquori/azuredevops-extension-tag-git-release"
+			"uri": "https://github.com/liquorichris/azuredevops-extension-tag-git-release"
 		},
 		"learn": {
-			"uri": "https://github.com/pwshliquori/azuredevops-extension-tag-git-release"
+			"uri": "https://github.com/liquorichris/azuredevops-extension-tag-git-release"
 		},
 		"support": {
-			"uri": "https://github.com/pwshliquori/azuredevops-extension-tag-git-release/issues"
+			"uri": "https://github.com/liquorichris/azuredevops-extension-tag-git-release/issues"
 		},
 		"repository": {
-			"uri": "https://github.com/pwshliquori/azuredevops-extension-tag-git-release"
+			"uri": "https://github.com/liquorichris/azuredevops-extension-tag-git-release"
 		}
 	},
 	"repository": {
 		"type": "git",
-		"uri": "https://github.com/pwshliquori/azuredevops-extension-tag-git-release"
+		"uri": "https://github.com/liquorichris/azuredevops-extension-tag-git-release"
 	},
 	"branding": {
 		"color": "rgb(0, 114, 186)",
