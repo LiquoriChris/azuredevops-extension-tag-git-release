@@ -74,7 +74,7 @@ Catch {
         $throw = $false
     }
     if ($throw) {
-        throw $_
+        throw $_.ErrorDetails.Message
     }
 }
 

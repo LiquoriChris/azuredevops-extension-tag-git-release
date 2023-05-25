@@ -3,7 +3,7 @@
 	"id": "tag-git-release",
 	"name": "Tag Git on Release",
 	"description": "Create an annotated git tag in the release pipeline",
-	"version": "1.2.5",
+	"version": "1.2.6",
 	"publisher": "liquorichris",
 	"public":  true,
 	"baseUri": "https://github.com/liquorichris",
